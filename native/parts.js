@@ -51,7 +51,7 @@ class Icon extends React.Component {
         }
         var img = (<Image
             style={style}
-            source={require(this.props.url)}
+            source={this.props.source}
         />)
         if (this.props.onPress) {
             return (<Pressable android_ripple={{
@@ -76,6 +76,9 @@ class Icon extends React.Component {
     }
 }
 
+/**
+ * @icon eg: require('path/file.png')
+ */
 
 class Button extends React.Component {
     constructor(props) {
@@ -87,7 +90,7 @@ class Button extends React.Component {
         }
         else if (this.props.icon) {
             return (<>
-                <Icon size={11} url={this.props.icon} />
+                <Icon size={11} source={this.props.icon} />
                 <Text style={[ss.center, txtSize, inkStyle]}>{this.props.children}</Text>
             </>)
         }
